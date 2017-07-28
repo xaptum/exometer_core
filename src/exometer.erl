@@ -60,7 +60,7 @@
     register_application/1
    ]).
 
--export([global_status/1]).
+%%-export([global_status/1]).
 
 -export([create_entry/1]).  % called only from exometer_admin.erl
 
