@@ -12,7 +12,7 @@
 %%
 %% This module simply
 %% @end
--module(exo_montest).
+-module('exo_montest.erl').
 -behaviour(exometer_folsom_monitor).
 -behaviour(exometer_entry).
 

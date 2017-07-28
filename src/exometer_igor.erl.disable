@@ -1,4 +1,4 @@
--module(exometer_igor).
+-module('exometer_igor.erl').
 -export([parse_transform/2]).
 
 

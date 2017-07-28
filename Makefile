@@ -3,8 +3,7 @@
 EXOMETER_PLT=exometer_core.plt
 DIALYZER_OPTS = # -Wunderspecs
 DIALYZER_APPS = erts kernel stdlib compiler syntax_tools \
-		test_server common_test folsom \
-		parse_trans setup
+		test_server common_test folsom
 
 all: deps compile xref test
 
@@ -27,12 +26,6 @@ test:
 
 xref:
 	ERL_LIBS=./deps rebar xref skip_deps=true
-
-edown_deps:
-	rebar get-deps compile edown=true
-
-doc: edown_deps
-	rebar doc edown=true skip_deps=true
 
 $(EXOMETER_PLT):
 	rebar get-deps compile

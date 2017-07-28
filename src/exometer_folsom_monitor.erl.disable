@@ -19,7 +19,7 @@
 %% and a callback module which is used to retrieve the specs for exometer
 %% metrics to create.
 %% @end
--module(exometer_folsom_monitor).
+-module('exometer_folsom_monitor.erl').
 
 -behaviour(gen_server).
 

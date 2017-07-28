@@ -842,26 +842,26 @@ aggr_acc([{D,V}|T], Acc) ->
 aggr_acc([], Acc) ->
     Acc.
 
-global_status(St) when St==enabled; St==disabled ->
-    Prev = exometer_global:status(),
-    if St =:= Prev -> ok;
-       true ->
-            parse_trans_mod:transform_module(
-              exometer_global, fun(Forms,_) -> pt(Forms, St) end, [])
-    end,
-    Prev.
+%%global_status(St) when St==enabled; St==disabled ->
+%%    Prev = exometer_global:status(),
+%%    if St =:= Prev -> ok;
+%%       true ->
+%%            parse_trans_mod:transform_module(
+%%              exometer_global, fun(Forms,_) -> pt(Forms, St) end, [])
+%%    end,
+%%    Prev.
 
-pt(Forms, St) ->
-    parse_trans:plain_transform(
-      fun(F) ->
-              plain_pt(F, St)
-      end, Forms).
-
-plain_pt({function, L, status, 0, [_]}, St) ->
-    {function, L, status, 0,
-     [{clause, L, [], [], [{atom, L, St}]}]};
-plain_pt(_, _) ->
-    continue.
+%%pt(Forms, St) ->
+%%    parse_trans:plain_transform(
+%%      fun(F) ->
+%%              plain_pt(F, St)
+%%      end, Forms).
+%%
+%%plain_pt({function, L, status, 0, [_]}, St) ->
+%%    {function, L, status, 0,
+%%     [{clause, L, [], [], [{atom, L, St}]}]};
+%%plain_pt(_, _) ->
+%%    continue.
 
 
 %% Perform variable replacement in the ets select pattern.
