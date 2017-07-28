@@ -38,7 +38,7 @@ init([]) ->
 		 ?CHILD(exometer_admin, worker),
 		 ?CHILD(exometer_cache, worker),
 		 ?CHILD(exometer_report, worker),
-		 ?CHILD(exometer_report_logger_sup, supervisor),
+%%		 ?CHILD(exometer_report_logger_sup, supervisor),
 		 ?CHILD(exometer_alias, worker)
 		],
     {ok, {{one_for_one, 5, 10}, Children0}}.

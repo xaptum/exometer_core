@@ -56,7 +56,7 @@
 %% message to the logger. The logger will reply with a message,
 %% `{plugin_active, N}', where `N' is the value given by the `active' option.
 %% @end
--module(exometer_report_logger).
+-module('exometer_report_logger.erl').
 
 -behaviour(gen_server).
 

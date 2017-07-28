@@ -8,7 +8,7 @@
 %%
 %% -------------------------------------------------------------------
 %% @private
--module(exometer_report_logger_sup).
+-module('exometer_report_logger_sup.erl').
 
 -behaviour(supervisor).
 
