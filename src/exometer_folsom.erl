@@ -136,7 +136,7 @@ datapoints(duration) ->
 datapoints(spiral) ->
     [one, count];
 datapoints(meter) ->
-    [count,one,five,fifteen,day,mean,acceleration];
+    [count,instant,one,five,fifteen,day,mean,acceleration];
 datapoints(history) ->
     [events, info].
 
