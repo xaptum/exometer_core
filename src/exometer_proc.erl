@@ -127,7 +127,7 @@ call(Pid, Req) ->
             Reply;
         {'DOWN', MRef, _, _, Reason} ->
             error(Reason)
-    after 5000 ->
+    after 100000 ->
             error(timeout)
     end.
 
