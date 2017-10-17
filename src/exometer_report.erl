@@ -1189,7 +1189,7 @@ do_report(#key{metric = Metric,
             true;
         %% We did not find a value, but we should try again.
         {true, _ } ->
-            ?log(debug, "Metric(~p) Datapoint(~p) not found."
+            ?log(trace, "Metric(~p) Datapoint(~p) not found."
                    " Will try again in ~p msec~n",
                    [Metric, DataPoint, Interval]),
             true;
@@ -1536,7 +1536,7 @@ get_subscribers(Metric, Type, Status,
                               metric = Metric,
                               datapoint = SDataPoint
                              }} | T ]) ->
-    ?log(debug,"get_subscribers(~p, ~p, ~p): match~n", [ Metric, SDataPoint, SReporter]),
+    ?log(trace,"get_subscribers(~p, ~p, ~p): match~n", [ Metric, SDataPoint, SReporter]),
     [ { SReporter, SDataPoint } | get_subscribers(Metric, Type, Status, T) ];
 
 %% get_subscribers(Metric, Type, Status,
@@ -1562,7 +1562,7 @@ get_subscribers(Metric, Type, Status,
                               metric = SMetric,
                               datapoint = SDataPoint
                              }} | T]) ->
-    ?log(debug, "get_subscribers(~p, ~p, ~p) nomatch(~p) ~n",
+    ?log(trace, "get_subscribers(~p, ~p, ~p) nomatch(~p) ~n",
            [ SMetric, SDataPoint, SReporter, Metric]),
     get_subscribers(Metric, Type, Status, T).
 
@@ -1643,7 +1643,7 @@ reporter_loop(Module, #rst{st = St, bulk = Bulk} = RSt) ->
                   end;
               %% Allow reporters to generate their own callbacks.
               Other ->
-                  ?log(debug, "Custom invocation: ~p(~p)~n", [ Module, Other]),
+                  ?log(trace, "Custom invocation: ~p(~p)~n", [ Module, Other]),
                   case Module:exometer_info(Other, St) of
                       {ok, St1} -> {ok, St1};
                       _ -> {ok, St}
