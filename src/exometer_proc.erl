@@ -127,8 +127,8 @@ call(Pid, Req) ->
             Reply;
         {'DOWN', MRef, _, _, Reason} ->
             error(Reason)
-    after 5000 ->
-            error(timeout)
+%%    after 5000 ->
+%%            error(timeout)
     end.
 
 -spec stop() -> no_return().
